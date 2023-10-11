@@ -33,19 +33,10 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <form action="/pendaftaran" id="form-pendaftaran" method="POST" enctype="multipart/form-data">
+            <form action="/skema-input" id="form-pendaftaran" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="row mb-3" id="form-pembayaran">
-                    <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Bukti Pembayaran <small class="text-danger">*</small></label>
-                    <div class="col-sm-10">
-                      <div class="input-group">
-                          <input type="file" name="bukti_tf" class="form-control" id="inputGroupFile02" />
-                          <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                      </div>
-                      <small class="form-text">* File Bukti Pembayaran berupa .jpg, .png, .jpeg.</small> <br>
-                      <small class="form-text">* Rekening Yayasan : xxxxxx .</small> <br>
-                      <small class="form-text">* Maksimal Size File sebesar 5 MB.</small>
-                    </div>
+                <div class="input-group">
+                    <input type="" value="{{ $bukti_tf ?? '' }}" class="form-control" id="inputGroupFile02" readonly />
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Foto Santri <small class="text-danger">*</small></label>
@@ -641,20 +632,6 @@
             var myModal = new bootstrap.Modal(document.getElementById('modalToggle'));
             myModal.show();
         @endif
-    });
-</script>
-
-{{-- Form Quesry By Js --}}
-<script>
-    document.getElementById('submit-button').addEventListener('click', function () {
-        // Dalam logika ini, Anda akan memeriksa apakah bukti pembayaran telah diunggah.
-        // Jika iya, Anda akan menampilkan elemen-elemen form pengisian data.
-        if (buktiPembayaranUploaded) {
-            document.getElementById('form-pengisian-data').style.display = 'block';
-        } else {
-            // Tampilkan pesan kesalahan jika bukti pembayaran belum diunggah.
-            alert('Silakan unggah bukti pembayaran terlebih dahulu.');
-        }
     });
 </script>
 

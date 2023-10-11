@@ -120,7 +120,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Jenjang Pendidikan</h2>
+          <h2>Pendidikan</h2>
           <p>Pesantren Islam Al-Irsyad Tengaran membuka Jenjang Pendidikan bagi calon santri yang sedang mencari lingkungan Islami untuk mengembangkan ilmu dan keshalihan diri.
           </p>
         </div>
@@ -213,7 +213,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="service-item position-relative">
               <div class="icon">
-                <i class="fa-solid fa-helmet-safety"></i>
+                <i class="fa-solid fa-arrow-up-from-ground-water"></i>
               </div>
               <h3>Tanggung Jawab</h3>
               <p>Tanggung jawab sosial pesantren diwujudkan melalui program-program yang berpihak pada masyarakat kecil dalam mencapai tingkat pendidikan.</p>
@@ -239,7 +239,7 @@
     <section id="blog" class="recent-blog-posts">
       <div class="container" data-aos="fade-up">
   <div class=" section-header">
-        <h2>Artikel & Kajian Islam</h2>
+        <h2>Kajian Islam</h2>
         <p>Kajian Islam singkat untuk menambah wawasan ilmu agama kita semua</p>
       </div>
 
@@ -348,6 +348,21 @@
     <!-- End Recent Blog Posts Section -->
 
   </main><!-- End #main -->
+
+  <style>
+    /* Gaya desktop */
+h2 {
+    font-size: 24px; /* Ukuran font untuk desktop */
+}
+
+/* Gaya mobile */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 18px; /* Ukuran font untuk mobile */
+    }
+}
+
+  </style>
 
 @include('layouts-home.footer')
 

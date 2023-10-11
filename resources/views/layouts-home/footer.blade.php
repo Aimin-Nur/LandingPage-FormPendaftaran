@@ -10,8 +10,8 @@
               <p>
                 <br>
                 <br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                <strong>Phone:</strong> +62 857-9627-2784<br>
+                <strong>Email:</strong> <a href="ponpesalirsyadgorontalo@gmail.com">ponpesalirsyadgorontalo@gmail.com</a><br>
               </p>
               <div class="social-links d-flex mt-3">
                 <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>

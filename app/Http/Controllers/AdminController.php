@@ -23,11 +23,22 @@ class AdminController extends Controller
             'username' => $request->username,
             'password' => $request->password,
         ])) {
-            return redirect('/adminPage');
+            return redirect('/konfirmasi');
         } else {
             return redirect('/login')->with(['warning' => 'Kata Sandi tidak terdaftar.']);
         }
 
+    }
+
+    public function konfirmasiPembayaran()
+    {
+        $activePage = 'data_pendaftaran';
+        $totalPendaftaran = DB::table('konfirmasi')->count();
+        $dataPendaftaran = DB::table('konfirmasi')->get();
+        $pending = DB::table('konfirmasi')->where('status', 'Menunggu Validasi')->count();
+        $validasi = DB::table('konfirmasi')->where('status', 'Validasi')->count();
+        // return view('layouts.navbar-admin', compact('activePage'));
+        return view('konfirmasiPembayaran', compact('dataPendaftaran', 'totalPendaftaran', 'pending', 'validasi'));
     }
 
     public function adminPage()

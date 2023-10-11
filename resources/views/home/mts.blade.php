@@ -33,7 +33,7 @@
     <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('pesantren/assets/img/footer-new.jpeg')}}">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-        <h2>Jenjang Pendidikan</h2>
+        <h1 class="text-white">Jenjang Pendidikan</h1>
         <ol>
           <li><a href="/">Home</a></li>
           <li>Jenjang Pendidikan</li>

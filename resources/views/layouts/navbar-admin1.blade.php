@@ -19,17 +19,19 @@
 
           <ul class="menu-inner py-1 mt-3">
             <!-- Dashboard -->
-            <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+            <li class="menu-item">
+              <a href="/konfirmasi" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-copy-alt"></i>
-                <div data-i18n="Analytics">Pendaftaran</div>
+                <div data-i18n="Analytics">Validasi Pembayaran</div>
               </a>
             </li>
 
-            <!-- Hanya tampilkan menu ini jika pengguna adalah admin -->
-            <li class="nav-item">
-                <a class="nav-link" href="/menu-admin">Menu Admin</a>
-            </li>
+            <li class="menu-item menu-item active">
+                <a href="/adminPage" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-copy-alt"></i>
+                  <div data-i18n="Analytics">Data Pendaftaran</div>
+                </a>
+              </li>
 
             <li class="menu-item">
                 <a href="https://wa.me/+6285796272784" class="menu-link">

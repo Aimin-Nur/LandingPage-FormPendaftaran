@@ -17,6 +17,15 @@
           <li><a href="#jenjang">Jenjang Pendidikan</a></li>
           <li><a href="#mutu">Kebijakan Mutu</a></li>
           <li><a href="#blog">Blog</a></li>
+          <li class="dropdown"><a href="#"><span>Pesantren</span> <i
+            class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                    <li><a href="/fasilitas">Fasilitas Pesantren</a></li>
+                    <li><a href="/studi">Profil Lulusan</a></li>
+                    <li><a href="/pengajar">Pengajar</a></li>
+                    <li><a href="#">Dropdown 4</a></li>
+                </ul>
+            </li>
           <li><a href="/contact">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->

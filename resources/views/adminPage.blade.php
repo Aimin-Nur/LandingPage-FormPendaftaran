@@ -1,6 +1,6 @@
 @include('layouts.header')
 
-@include('layouts.navbar')
+@include('layouts.navbar-admin1')
 
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row">
@@ -106,7 +106,8 @@
 </div>
 <hr class=""/>
 
-<!-- Striped Rows -->
+
+  <!-- Striped Rows -->
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card">
         <h5 class="card-header">Data Pendaftaran Santri</h5>
@@ -117,7 +118,7 @@
                 <th>Nama Santri</th>
                 <th>Nomor Hp</th>
                 <th>Email</th>
-                <th>Jenis Kelamin</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -129,10 +130,67 @@
                         <td>{{ $pendaftaran->hp_santri }}</td>
                         <td>{{ $pendaftaran->email }}</td>
                         <td>
-                            @if ($pendaftaran->gender === 'Ikhwan')
-                                <span class="badge bg-label-info me-1">{{ $pendaftaran->gender}}</span>
+                            @if ($pendaftaran->status === 'Menunggu Validasi')
+                                <span class="badge bg-label-danger me-1">{{ $pendaftaran->status}}</span>
                             @else
-                                <span class="badge bg-label-danger me-1">{{ $pendaftaran->gender}}</span>
+                                <span class="badge bg-label-success me-1">{{ $pendaftaran->status}}</span>
+                            @endif
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu">
+                                <a data-bs-toggle="modal" data-bs-target="#modalScrollable{{ $pendaftaran->id }}"
+                                    class="dropdown-item" href="javascript:void(0);">
+                                    <i class="bx bx-edit-alt me-1"></i> Detail
+                                </a>
+
+
+                                {{-- <a class="dropdown-item" href="javascript:void(0);">
+                                <i class="bx bx-trash me-1"></i> Delete</a> --}}
+                              </div>
+                            </div>
+                        </td>
+                        <!-- tambahkan kolom lainnya sesuai kebutuhan -->
+                    </tr>
+                @endforeach
+            @endisset
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+  <!--/ Striped Rows -->
+
+  <!-- Data validasi -->
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card">
+        <h5 class="card-header">Data Pendaftaran Santri</h5>
+        <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nama Santri</th>
+                <th>Nomor Hp</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+            @isset($dataPendaftaran)
+                @foreach ($dataPendaftaran as $pendaftaran)
+                    <tr>
+                        <td>{{ $pendaftaran->nama_lengkap }}</td>
+                        <td>{{ $pendaftaran->hp_santri }}</td>
+                        <td>{{ $pendaftaran->email }}</td>
+                        <td>
+                            @if ($pendaftaran->status === 'Menunggu Validasi')
+                                <span class="badge bg-label-danger me-1">{{ $pendaftaran->status}}</span>
+                            @else
+                                <span class="badge bg-label-success me-1">{{ $pendaftaran->status}}</span>
                             @endif
                         </td>
                         <td>
@@ -178,33 +236,6 @@
                     aria-label="Close"
                 ></button>
             </div>
-            {{-- <div class="modal-body">
-                <p><strong>Nama:</strong> <span id="detailNama">{{ $pendaftaran->nama_lengkap}}</span></p>
-                <p><strong>Email:</strong> <span id="detailEmail">{{ $pendaftaran->email}}</span></p>
-                <p><strong>Jenis Kelamin:</strong> <span id="detailGender">{{ $pendaftaran->gender }}</span></p>
-                <p><strong>Tempat lahir:</strong> <span id="detailGender">{{ $pendaftaran->tempat_lahir }}</span></p>
-                <p><strong>Tanggal lahir:</strong> <span id="detailGender">{{ $pendaftaran->tanggal_lahir }}</span></p>
-                <p><strong>Nomor HP:</strong> <span id="detailHpSantri">{{ $pendaftaran->hp_santri}}</span></p>
-                <p><strong>Nomor HP Orang Tua:</strong> <span id="detailHpOrangTua">{{ $pendaftaran->hp_ortu}}</span></p>
-                <p><strong>Asal Sekolah:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->asal_sekolah}}</span></p>
-                <p><strong>Alamat:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->alamat_lengkap}}</span></p>
-                <p><strong>NIK:</strong> <span id="detailNik">{{ $pendaftaran->NIK}}</span></p>
-                <p><strong>Riwayat Penyakit:</strong> <span id="detailNik">{{ $pendaftaran->riwayat_penyakit}}</span></p>
-                <p><strong>Nama Ayah:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->nama_ayah}}</span></p>
-                <p><strong>Nama Ibu:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->nama_ibu}}</span></p>
-                <p><strong>Pendidikan Ayah:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->pendidikan_ayah}}</span></p>
-                <p><strong>Pendidikan Ibu:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->pendidikan_ibu}}</span></p>
-                <p><strong>Pekerjaan Ayah:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->pekerjaan_ayah}}</span></p>
-                <p><strong>Pekerjaan Ibu:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->pekerjaan_ibu}}</span></p>
-                <p><strong>Nama Wali:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->nama_wali}}</span></p>
-                <p><strong>Pekerjaan Wali:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->pekerjaan_wali}}</span></p>
-                <p><strong>Pendidikan Wali:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->pendidikan_wali}}</span></p>
-                <p><strong>Nomor Hp wali:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->hp_wali}}</span></p>
-                <p><strong>Alamat Wali:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->alamat_wali}}</span></p>
-                <p><strong>Hubungan Wali:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->hubungan_wali}}</span></p>
-                <p><strong>Keahlian:</strong> <span id="detailAsalSekolah">{{ $pendaftaran->keahlian}}</span></p>
-                <a href="{{ route('download-berkas', ['id' => $pendaftaran->id]) }}">Download berkas</a>
-            </div> --}}
             <div class="modal-body">
                 <div class="row">
                   <div class="col mb-3">

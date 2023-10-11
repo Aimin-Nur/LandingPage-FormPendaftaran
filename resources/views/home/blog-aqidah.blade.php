@@ -32,7 +32,7 @@
     <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('pesantren/assets/img/footer-new.jpeg')}})">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-        <h2>Artikel Islam</h2>
+        <h1 class="text-white">Artikel Islam</h1>
         <ol>
           <li><a href="/">Home</a></li>
           <li>Artikel & Kajian Islam</li>
@@ -149,14 +149,7 @@
               <div class="meta-bottom">
                 <i class="bi bi-folder"></i>
                 <ul class="cats">
-                  <li><a href="#">Business</a></li>
-                </ul>
-
-                <i class="bi bi-tags"></i>
-                <ul class="tags">
-                  <li><a href="#">Creative</a></li>
-                  <li><a href="#">Tips</a></li>
-                  <li><a href="#">Marketing</a></li>
+                  <li><a href="#">Pesantren Al-Irsyad Tengaran Gorontalo</a></li>
                 </ul>
               </div><!-- End meta bottom -->
 

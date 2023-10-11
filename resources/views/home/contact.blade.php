@@ -33,7 +33,7 @@
 
         <h2>Contact</h2>
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li>Contact</li>
         </ol>
 
@@ -57,7 +57,7 @@
             <div class="info-item d-flex flex-column justify-content-center align-items-center">
               <i class="bi bi-envelope"></i>
               <h3>Email Us</h3>
-              <small><a href="Pesantrenalirsyadgorontalo@gmail.com">Pesantrenalirsyadgorontalo@gmail.com</a></small>
+              <small><a href="ponpesalirsyadgorontalo@gmail.com">ponpesalirsyadgorontalo@gmail.com</a></small>
             </div>
           </div><!-- End Info Item -->
 

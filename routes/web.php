@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\formPendaftaran;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\PendaftaranController;
 
 // Rute Beranda
 Route::get('/', function () {
@@ -22,6 +22,21 @@ Route::get('/idad', function () {
 // Rute Contact
 Route::get('/contact', function () {
     return view('home.contact');
+});
+
+// Rute Studi
+Route::get('/studi', function () {
+    return view('home.studi');
+});
+
+// Rute Pengajar
+Route::get('/pengajar', function () {
+    return view('home.pengajar');
+});
+
+// Rute Fasilitas
+Route::get('/fasilitas', function () {
+    return view('home.fasilitas');
 });
 
 // Rute blog-aqidah
@@ -60,18 +75,41 @@ Route::post('/prosesLogin/admin', [AdminController::class, 'prosesLogin']);
 
 // Rute yang memerlukan otentikasi 'bos'
 Route::middleware(['auth:bos'])->group(function () {
+     // Halaman adminPage
+     Route::get('/konfirmasi', [AdminController::class, 'konfirmasiPembayaran']);
+     Route::post('/validasi-pembayaran/{id}', [PendaftaranController::class, 'validasiPembayaran'])->name('validasi.pembayaran');
     // Halaman adminPage
     Route::get('/adminPage', [AdminController::class, 'adminPage']);
     // Rute POST yang mengarah ke adminPage
     Route::post('/adminPage', [AdminController::class, 'adminPage']);
     // Download berkas
     Route::get('/download-berkas/{id}', [AdminController::class, 'downloadBerkas'])->name('download-berkas');
+    // Download bukti pembayaran
+    Route::get('/download-berkas-pembayaran/{id}', [PendaftaranController::class, 'downloadBerkasPembayaran'])->name('download-berkas-pembayaran');
 
     Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
 });
 
+
+// Rute dashboard pendaftaran
+Route::get('/tf', function () {
+    return view('tf');
+});
+
+// Rute dashboard pendaftaran
+Route::get('/form-skema', function () {
+    return view('skema-form');
+});
+
 // Rute untuk menyimpan data pendaftaran
 Route::post('/pendaftaran', [formPendaftaran::class, 'simpanData']);
+
+// Rute untuk menyimpan data pendaftaran
+Route::post('/skema', [PendaftaranController::class, 'tambahPendaftaran']);
+
+// Rute untuk menyimpan data pendaftaran
+Route::post('/skema-input', [formPendaftaran::class, 'skemaInput']);
+
 
 // Rute untuk mengunduh berkas
 Route::get('/download-berkas/{id}', [AdminController::class, 'downloadBerkas'])->name('download-berkas');
